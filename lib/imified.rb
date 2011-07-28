@@ -1,5 +1,5 @@
 require "imified/version"
 
 module Imified
-  # Your code goes here...
+  BOTKEY = YAML.load_file('lib/imified.yml')["Imified"]["botkey"]
 end

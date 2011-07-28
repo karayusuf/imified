@@ -1,5 +1,7 @@
 require 'spec_helper'
 
 describe Imified do
-  pending "Write the gem"
+  it "should know the users bot key" do
+    Imified::BOTKEY.should_not be_nil
+  end
 end
