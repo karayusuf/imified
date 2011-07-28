@@ -1,0 +1,57 @@
+== Imified
+
+Easily IM enable your Ruby or Rails applications with one simple API.
+
+The Imified gem aims to be as flexible as possible while helping you
+easily integrate instant messaging into your application.
+
+Imified was designed to be as simple as possible. For the first implementation
+it will simply contain the public API methods specified on the Imified website.
+(http://www.imified.com/developers/api)
+
+== Create an Imified account
+
+1. Create an Imified account.
+This can be done for FREE at http://www.imified.com/account/sign_up.
+
+2. Create your bot.
+Imified will as you to provide the following information:
+
+  - Name
+  - Screen Name
+  - URL (OPTIONAL: I'd recommend leaving this blank during setup)
+
+3. Create a screenname for your bot.
+Choose one of the following services:
+
+  - Jabber (www.jabber.org)
+  - AIM (www.aim.com)
+  - MSN (signup.live.com)
+  - YAHOO (http://edit.yahoo.com/registration?.intl=us&new=1&.done=http%3A//mail.yahoo.com&.src=ym)
+  - Google Talk (www.google.com/talk)
+  - Twitter (www.twitter.com)
+
+4. Login to your imified bot and connect the bot to the newly created account.
+
+== Installation
+
+Install the gem:
+
+  gem install imified
+
+Copy the sample configuration:
+
+  cp imified.yml.sample imified.sample
+
+Add your bot information to the configuration.
+
+== Usage
+
+Imified.send_message("Welcome to Imified", :to => 'userkey') # => Sends the specified message to the user or list of users.
+
+Imified.get_user(userkey) # => Returns the user details for the specified user.
+
+Imified.get_all_users     # => Returns the user details for all users of the bot as well as the user count.
+
+Imified.update_status     # => For IM, updates your bot's extended status.
+                               For Twitter, posts a status update.
