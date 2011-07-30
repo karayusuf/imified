@@ -14,6 +14,6 @@ describe Imified do
   end
 
   it "should know the Imified URL" do
-    Imified::IMIFIED_URL.should eql(URI.parse('https://www.imified.com/api/bot/'))
+    Imified::URL.should eql(URI.parse('https://www.imified.com/api/bot/'))
   end
 end
