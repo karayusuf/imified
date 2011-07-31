@@ -15,11 +15,12 @@ class Imified::User
     http.use_ssl = true
 
     response = http.start {|http| http.request(req) }
+
     case response
     when Net::HTTPSuccess, Net::HTTPRedirection
       response.body
     else
-      res.error!
+      response.error!
     end
   end
 end
