@@ -14,6 +14,13 @@ describe Imified do
   end
 
   it "should know the Imified URL" do
-    Imified::URL.should eql(URI.parse('https://www.imified.com/api/bot/'))
+    Imified::URL.should eql('https://www.imified.com/api/bot/')
   end
+
+  it "should be able to list all of the bots users" do
+    Imified::User.stub!(:all).and_return('list of users')
+    Imified::User.should_receive(:all)
+    Imified.get_all_users
+  end
+
 end
