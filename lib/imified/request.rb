@@ -23,10 +23,10 @@ class Imified::Request < Net::HTTP::Post
   # @return[Net::HTTP::Post]
   def initialize
     super(URL.path)
-    self.basic_auth Imified::USERNAME, Imified::PASSWORD
+    self.basic_auth Imified.email_address, Imified.password
     self.set_form_data({
       'apimethod' => 'getallusers',
-      'botkey'    => Imified::BOTKEY
+      'botkey'    => Imified.botkey
     })
   end
 

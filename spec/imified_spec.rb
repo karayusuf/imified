@@ -1,16 +1,16 @@
 require 'spec_helper'
 
 describe Imified do
-  it "should know the users bot key" do
-    Imified::BOTKEY.should_not be_nil
+  it "should know the user's bot key" do
+    Imified.should respond_to :botkey
   end
 
-  it "should know the account name" do
-    Imified::USERNAME.should_not be_nil
+  it "should know the user's email address" do
+    Imified.should respond_to :email_address
   end
 
   it "should know the account password" do
-    Imified::PASSWORD.should_not be_nil
+    Imified.should respond_to :password
   end
 
   it "should know the Imified URL" do

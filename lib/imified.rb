@@ -1,7 +1,7 @@
+require 'active_support'
 require 'net/http'
 require 'net/https'
 require 'uri'
-require 'yaml'
 
 module Imified
   autoload :Message, 'imified/message'
@@ -9,20 +9,17 @@ module Imified
   autoload :User,    'imified/user'
   autoload :Version, 'imified/version'
 
-  # Identify the Imified configuration.
-  CONFIG = YAML.load_file('lib/imified.yml')
-
-  # Reference to the Imified BOTKEY.
-  BOTKEY = CONFIG["Imified"]["botkey"]
-
-  # Reference to the Imified Account Username.
-  USERNAME = CONFIG["Imified"]["username"]
-
-  # Reference to the Imified Account Password.
-  PASSWORD = CONFIG["Imified"]["password"]
-
-  # Imified API URL.
+  # Imified API url
   URL = 'https://www.imified.com/api/bot/'
+
+  # User's unique botkey
+  mattr_accessor :botkey
+
+  # User's Imified account name
+  mattr_accessor :email_address
+
+  # User's Imified account password
+  mattr_accessor :password
 
   # Fetch a list of all of the bots known users.
   # Includes a total count of the users.

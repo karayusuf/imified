@@ -8,7 +8,7 @@ describe Imified::Request do
   it "should use basic authentication" do
     Imified::Request.any_instance.
       should_receive(:basic_auth).
-      with(Imified::USERNAME, Imified::PASSWORD)
+      with('rspec_email_address', 'rspec_password')
     Imified::Request.new
   end
 
