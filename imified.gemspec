@@ -8,8 +8,11 @@ Gem::Specification.new do |s|
   s.authors     = ["Joe Karayusuf"]
   s.email       = ["jkarayusuf@gmail.com"]
   s.homepage    = ""
-  s.summary     = %q{ Simple Instant Messaging API using the IMified platform. }
-  s.description = %q{ TODO: Write a description of the gem. }
+  s.summary     = %q{ API for sending Text/Instant Messages using IMified.com }
+  s.description = %q{ The IMified API exposes methods for sending messages,
+                      fetching user details, and updating status. To get started,
+                      you'll need to sign up for a free developer account at:
+                      http://imified.com/account/signup }
 
   s.rubyforge_project = "imified"
 
