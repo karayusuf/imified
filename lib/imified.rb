@@ -66,6 +66,7 @@ module Imified
   #     </rsp>
   #
   def Imified.get_all_users
-    User.all
+    request = Imified::Request.new
+    response = request.submit
   end
 end
