@@ -4,6 +4,7 @@ require 'uri'
 
 module Imified
   autoload :Message, 'imified/message'
+  autoload :Request, 'imified/request'
   autoload :User,    'imified/user'
   autoload :Version, 'imified/version'
 
