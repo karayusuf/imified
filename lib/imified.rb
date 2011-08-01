@@ -1,6 +1,7 @@
 require 'net/http'
 require 'net/https'
 require 'uri'
+require 'yaml'
 
 module Imified
   autoload :Message, 'imified/message'
