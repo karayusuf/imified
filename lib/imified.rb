@@ -21,6 +21,21 @@ module Imified
   # User's Imified account password
   mattr_accessor :password
 
+  # Default way to setup Imified.
+  # To be used during initialization.
+  #
+  # == Example:
+  #
+  #   Imified.setup do |config|
+  #     config.botkey = 'the bot you would like to use'
+  #     config.email_address = 'your imified email address'
+  #     config.password = 'your imified password'
+  #   end
+  #
+  def self.setup
+    yield self
+  end
+
   # Fetch a list of all of the bots known users.
   # Includes a total count of the users.
   #
