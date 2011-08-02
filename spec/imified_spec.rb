@@ -29,6 +29,43 @@ describe Imified do
 
   end
 
+  context "when sending a message to a user" do
+    let(:mock_request) { double('imified_request').as_null_object }
+    let(:mock_response) { double('imfiied_response').as_null_object }
+
+    before(:each) do
+      Imified::Request.stub(:new).and_return(mock_request)
+      mock_request.stub(:submit).and_return(mock_response)
+    end
+
+    it "should prepare a new request to 'send'" do
+      Imified::Request.
+        should_receive(:new).
+        with('send').
+        and_return(mock_request)
+      Imified.send_message('Rspec message', :to => 'userkey')
+    end
+
+    it "should add the specified message to the request" do
+      mock_request.
+        should_receive(:add_field).
+        with('msg', 'a message to send')
+      Imified.send_message('a message to send', :to => 'a user')
+    end
+
+    it "should add the specified userkey to the request" do
+      mock_request.
+        should_receive(:add_field).
+        with('userkey', 'someones userkey')
+      Imified.send_message('A Message', :to => 'someones userkey')
+    end
+
+    it "should submit the request" do
+      mock_request.should_receive(:submit)
+      Imified.send_message('A Message', :to => 'someones userkey')
+    end
+  end
+
   context "when fetching a list of the bot's users" do
     let(:mock_request) { double('imified_request').as_null_object }
     let(:mock_response) { double('imfiied_response').as_null_object }

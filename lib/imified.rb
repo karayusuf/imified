@@ -112,4 +112,11 @@ module Imified
     request.add_field 'userkey', userkey
     response = request.submit
   end
+
+  def Imified.send_message(msg, options)
+    request = Imified::Request.new('send')
+    request.add_field 'userkey', options[:to]
+    request.add_field 'msg', msg
+    response = request.submit
+  end
 end
