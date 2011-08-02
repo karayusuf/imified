@@ -1,6 +1,14 @@
 require 'spec_helper'
 
 describe Imified::Request do
+
+  it "should validate the user's imified configuration" do
+    Imified.
+      should_receive(:validate_configuration!).
+      and_return(nil)
+    Imified::Request.new
+  end
+
   it "should use the imified url" do
     Imified::Request::URL.should == URI.parse('https://www.imified.com/api/bot/')
   end
@@ -42,20 +50,5 @@ describe Imified::Request do
     end
   end
 
-  context "when being submitted with invalid account information" do
-    it "should raise an error if the botkey has not been specified" do
-      Imified.stub(:botkey).and_return(nil)
-      expect { Imified::Request.new }.to raise_error(ArgumentError)
-    end
 
-    it "should raise an error if the email address has not been specified" do
-      Imified.stub(:email_address).and_return(nil)
-      expect { Imified::Request.new }.to raise_error(ArgumentError)
-    end
-
-    it "should raise an error if the password has not been specified" do
-      Imified.stub(:password).and_return(nil)
-      expect { Imified::Request.new }.to raise_error(ArgumentError)
-    end
-  end
 end

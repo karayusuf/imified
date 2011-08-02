@@ -22,11 +22,9 @@ class Imified::Request < Net::HTTP::Post
   #
   # @return[Net::HTTP::Post]
   def initialize
-    raise ArgumentError if Imified.botkey.nil?
-    raise ArgumentError if Imified.email_address.nil?
-    raise ArgumentError if Imified.password.nil?
-
+    Imified.validate_configuration!
     super(URL.path)
+
     self.basic_auth Imified.email_address, Imified.password
     self.set_form_data({
       'apimethod' => 'getallusers',
@@ -40,5 +38,4 @@ class Imified::Request < Net::HTTP::Post
     http.use_ssl = true
     http.start { |send| send.request(self) }
   end
-
 end

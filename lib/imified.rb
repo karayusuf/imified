@@ -36,6 +36,30 @@ module Imified
     yield self
   end
 
+  # Validate that the Imified module has been configured
+  # with the users account information. Raise an error
+  # containing instructions to properly configure the
+  # module.
+  #
+  def Imified.validate_configuration!
+    if Imified.botkey.nil? ||
+       Imified.email_address.nil? ||
+       Imified.password.nil?
+      raise ArgumentError, "Invalid Configuration.
+        In order to use the Imified API, you must
+        first run the setup and provide your account
+        information.
+
+        This can be done using the following syntax:
+
+        Imified.setup do |config|
+          config.botkey = 'your botkey'
+          config.email_address = 'your email address'
+          config.password = 'your password'
+        end"
+    end
+  end
+
   # Fetch a list of all of the bots known users.
   # Includes a total count of the users.
   #

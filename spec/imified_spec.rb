@@ -49,4 +49,30 @@ describe Imified do
     end
   end
 
+  context "when validating the configuration" do
+    it "should not raise an error if all of the values are set" do
+      Imified.setup do |config|
+        config.botkey = 'botkey'
+        config.email_address = 'test email'
+        config.password = 'super secret'
+      end
+
+      expect { Imified.validate_configuration! }.to_not raise_error(ArgumentError)
+    end
+
+    it "should raise an error if the botkey has not been specified" do
+      Imified.stub(:botkey).and_return(nil)
+      expect { Imified.validate_configuration! }.to raise_error(ArgumentError)
+    end
+
+    it "should raise an error if the email address has not been specified" do
+      Imified.stub(:email_address).and_return(nil)
+      expect { Imified.validate_configuration! }.to raise_error(ArgumentError)
+    end
+
+    it "should raise an error if the password has not been specified" do
+      Imified.stub(:password).and_return(nil)
+      expect { Imified.validate_configuration! }.to raise_error(ArgumentError)
+    end
+  end
 end
