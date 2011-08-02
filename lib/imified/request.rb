@@ -21,13 +21,13 @@ class Imified::Request < Net::HTTP::Post
   #   Imified::Request.new
   #
   # @return[Net::HTTP::Post]
-  def initialize
+  def initialize(api_method = 'getallusers')
     Imified.validate_configuration!
     super(URL.path)
 
     self.basic_auth Imified.email_address, Imified.password
     self.set_form_data({
-      'apimethod' => 'getallusers',
+      'apimethod' => api_method,
       'botkey'    => Imified.botkey
     })
   end

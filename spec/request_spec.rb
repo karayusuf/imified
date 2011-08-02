@@ -20,11 +20,18 @@ describe Imified::Request do
     Imified::Request.new
   end
 
-  it "should use the 'getallusers' api method" do
+  it "should default to the 'getallusers' api method" do
     Imified::Request.any_instance.
       should_receive(:set_form_data).
       with(hash_including({'apimethod' => 'getallusers'}))
     Imified::Request.new
+  end
+
+  it "should allow the 'getuser' method to be used" do
+    Imified::Request.any_instance.
+      should_receive(:set_form_data).
+      with(hash_including({'apimethod' => 'getuser'}))
+    Imified::Request.new('getuser')
   end
 
   context "when being submitted with valid account information" do

@@ -106,4 +106,10 @@ module Imified
     request = Imified::Request.new
     response = request.submit
   end
+
+  def Imified.get_user(userkey)
+    request = Imified::Request.new('getuser')
+    request.add_field 'userkey', userkey
+    response = request.submit
+  end
 end

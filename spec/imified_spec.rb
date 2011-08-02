@@ -49,6 +49,35 @@ describe Imified do
     end
   end
 
+  context "when fetching details for a specified user" do
+    let(:mock_request) { double('imified_request').as_null_object }
+    let(:mock_response) { double('imified_response').as_null_object }
+
+    before(:each) do
+      Imified::Request.stub(:new).and_return(mock_request)
+      mock_request.stub(:submit).and_return(mock_response)
+    end
+
+    it "should prepare a new request to 'getuser'" do
+      Imified::Request.
+        should_receive(:new).
+        with('getuser')
+      Imified.get_user('someones userkey')
+    end
+
+    it "should add the specified userkey to the request" do
+      mock_request.
+        should_receive(:add_field).
+        with('userkey', 'someones userkey')
+      Imified.get_user('someones userkey')
+    end
+
+    it "should submit the request" do
+      mock_request.should_receive(:submit)
+      Imified.get_user('userkey')
+    end
+  end
+
   context "when validating the configuration" do
     it "should not raise an error if all of the values are set" do
       Imified.setup do |config|
