@@ -19,7 +19,7 @@ Imified will as you to provide the following information:
 
   - Name
   - Screen Name
-  - URL (OPTIONAL: I'd recommend leaving this blank during setup)
+  - URL (Note: Leave this blank until you need it.)
 
 3. Create a screenname for your bot.
 Choose one of the following services:
@@ -39,19 +39,24 @@ Install the gem:
 
   gem install imified
 
-Copy the sample configuration:
+Setup IMified when your application initializes:
 
-  cp imified.yml.sample imified.sample
-
-Add your bot information to the configuration.
+  Imified.setup do |config|
+    config.botkey = 'botkey of the bot you want to use'
+    config.email_address = 'your imified account email address'
+    config.password = 'your imified account password'
+  end
 
 == Usage
 
-Imified.send_message("Welcome to Imified", :to => 'userkey') # => Sends the specified message to the user or list of users.
+  # Send a message to a user or list of users.
+  Imified.send_message("Welcome to Imified", :to => 'userkey')
 
-Imified.get_user(userkey) # => Returns the user details for the specified user.
+  # Fetch the user details for a specific user.
+  Imified.get_user(userkey)
 
-Imified.get_all_users     # => Returns the user details for all users of the bot as well as the user count.
+  # Fetch a list of all of the users know to the bot.
+  Imified.get_all_users
 
-Imified.update_status     # => For IM, updates your bot's extended status.
-                               For Twitter, posts a status update.
+  # Update the status of your bot
+  Imified.update_status
