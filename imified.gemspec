@@ -7,7 +7,7 @@ Gem::Specification.new do |s|
   s.version     = Imified::VERSION
   s.authors     = ["Joe Karayusuf"]
   s.email       = ["jkarayusuf@gmail.com"]
-  s.homepage    = ""
+  s.homepage    = "https://github.com/karayusuf/imified"
   s.summary     = %q{ API for sending Text/Instant Messages using IMified.com }
   s.description = %q{ The IMified API exposes methods for sending messages,
                       fetching user details, and updating status. To get started,
