@@ -34,6 +34,6 @@ class Imified::Request < Net::HTTP::Post
   def submit
     http = Net::HTTP.new(URL.host, URL.port)
     http.use_ssl = true
-    http.start { |send| send.request(self) }
+    http.start { |send| send.request(self) }.body
   end
 end

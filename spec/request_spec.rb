@@ -32,7 +32,7 @@ describe Imified::Request do
 
   context "when being submitted with valid account information" do
     let(:mock_net_http) { double('net_http').as_null_object }
-    let(:mock_net_http_success) { double('net_http_success') }
+    let(:mock_net_http_response) { double('net_http_response').as_null_object }
 
     before(:each) { Net::HTTP.stub!(:new).and_return(mock_net_http) }
 
@@ -48,7 +48,8 @@ describe Imified::Request do
     end
 
     it "should send the request" do
-      mock_net_http.should_receive(:start).and_return(mock_net_http_success)
+      mock_net_http.should_receive(:start).and_return(mock_net_http_response)
+      mock_net_http_response.should_receive(:body)
       Imified::Request.new.submit
     end
   end
