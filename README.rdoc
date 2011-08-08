@@ -11,25 +11,24 @@ it will simply contain the public API methods specified on the Imified website.
 
 == Create an Imified account
 
-1. Create an Imified account.
-This can be done for FREE at http://www.imified.com/account/sign_up.
+1. Create your FREE accout at http://www.imified.com/account/sign_up.
 
 2. Create your bot.
-Imified will ask you to provide the following information:
+   Imified will ask you to provide the following information:
 
-  - Name
-  - Screen Name
-  - URL (Note: Leave this blank until you need it.)
+   - Name
+   - Screen Name
+   - URL (Note: Leave this blank until you need it.)
 
 3. Create a screenname for your bot.
-Choose one of the following services:
+   Choose one of the following services:
 
-  - Jabber (www.jabber.org)
-  - AIM (www.aim.com)
-  - MSN (signup.live.com)
-  - YAHOO (http://edit.yahoo.com/registration?.intl=us&new=1&.done=http%3A//mail.yahoo.com&.src=ym)
-  - Google Talk (www.google.com/talk)
-  - Twitter (www.twitter.com)
+   - Jabber (www.jabber.org)
+   - AIM (www.aim.com)
+   - MSN (signup.live.com)
+   - YAHOO (http://edit.yahoo.com/registration?.intl=us&new=1&.done=http%3A//mail.yahoo.com&.src=ym)
+   - Google Talk (www.google.com/talk)
+   - Twitter (www.twitter.com)
 
 4. Login to your imified bot and connect the bot to the newly created account.
 
