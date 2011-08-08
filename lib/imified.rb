@@ -1,5 +1,4 @@
 require 'active_support'
-require 'net/http'
 require 'net/https'
 require 'uri'
 
