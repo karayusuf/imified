@@ -26,10 +26,8 @@ class Imified::Request < Net::HTTP::Post
     super(URL.path)
 
     self.basic_auth Imified.email_address, Imified.password
-    self.set_form_data({
-      'apimethod' => api_method,
-      'botkey'    => Imified.botkey
-    })
+    self.add_field 'apimethod', api_method
+    self.add_field 'botkey', Imified.botkey
   end
 
   # Submit the request to Imified.
