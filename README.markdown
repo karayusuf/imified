@@ -15,7 +15,7 @@ it will simply contain the public API methods specified on the Imified website.
 This can be done for FREE at http://www.imified.com/account/sign_up.
 
 2. Create your bot.
-Imified will as you to provide the following information:
+Imified will ask you to provide the following information:
 
   - Name
   - Screen Name
@@ -55,7 +55,7 @@ Setup IMified when your application initializes:
   # Fetch the user details for a specific user.
   Imified.get_user(userkey)
 
-  # Fetch a list of all of the users know to the bot.
+  # Fetch a list of all of the users known to the bot.
   Imified.get_all_users
 
   # Update the status of your bot
