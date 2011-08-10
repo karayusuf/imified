@@ -56,6 +56,3 @@ Setup IMified when your application initializes:
 
   # Fetch a list of all of the users known to the bot.
   Imified.get_all_users
-
-  # Update the status of your bot
-  Imified.update_status
