@@ -1,4 +1,4 @@
-require 'active_support'
+require 'active_support/core_ext/module/attribute_accessors'
 require 'net/https'
 require 'uri'
 
