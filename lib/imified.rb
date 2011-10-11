@@ -1,5 +1,6 @@
 require 'active_support/core_ext/module/attribute_accessors'
 require 'net/https'
+require 'nokogiri'
 require 'uri'
 
 module Imified
@@ -105,6 +106,7 @@ module Imified
   def Imified.get_all_users
     request = Imified::Request.new
     response = request.submit
+    self.user_list = Nokogiri::XML(response)
   end
 
   def Imified.get_user(userkey)
@@ -115,8 +117,17 @@ module Imified
 
   def Imified.send_message(msg, options)
     request = Imified::Request.new('send')
-    request.add_field 'userkey', options[:to]
+    request.add_field 'userkey', Imified.foo(options[:to])
     request.add_field 'msg', msg
     response = request.submit
+  end
+
+def Imified.foo(recipient)
+    if recipient.include?('@')
+      Imified.user_list.xpath("//user/screenname[text() = '#{recipient}']/../userkey/text()").to_s
+      # identify_userkey
+    else
+      recipient
+    end
   end
 end
