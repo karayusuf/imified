@@ -5,6 +5,7 @@ require 'uri'
 
 module Imified
   autoload :Request, 'imified/request'
+  autoload :Userkey, 'imified/userkey'
   autoload :Version, 'imified/version'
 
   # Imified API url
@@ -117,17 +118,8 @@ module Imified
 
   def Imified.send_message(msg, options)
     request = Imified::Request.new('send')
-    request.add_field 'userkey', Imified.foo(options[:to])
+    request.add_field 'userkey', Imified::Userkey.extract(options[:to])
     request.add_field 'msg', msg
     response = request.submit
-  end
-
-def Imified.foo(recipient)
-    if recipient.include?('@')
-      Imified.user_list.xpath("//user/screenname[text() = '#{recipient}']/../userkey/text()").to_s
-      # identify_userkey
-    else
-      recipient
-    end
   end
 end
