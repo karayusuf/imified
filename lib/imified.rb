@@ -18,6 +18,9 @@ module Imified
   # User's Imified account password
   mattr_accessor :password
 
+  # User's your bot knows about
+  mattr_accessor :user_list
+
   # Default way to setup Imified.
   # To be used during initialization.
   #
