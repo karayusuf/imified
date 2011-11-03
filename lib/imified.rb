@@ -118,7 +118,7 @@ module Imified
 
   def Imified.send_message(msg, options)
     request = Imified::Request.new('send')
-    request.add_field 'userkey', Imified::Userkey.extract(options[:to])
+    request.add_field 'userkey', Imified::Userkey.find(options[:to])
     request.add_field 'msg', msg
     response = request.submit
   end

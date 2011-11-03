@@ -60,6 +60,15 @@ describe Imified do
       Imified.send_message('A Message', :to => 'someones userkey')
     end
 
+    it "should lookup the userkey using the specified email" do
+      Imified.stub!(:user_list).
+        and_return(example_get_all_users_response)
+      mock_request.
+        should_receive(:add_field).
+        with('userkey', '123456789')
+      Imified.send_message('A Message', :to => 'me@jkarayusuf.com')
+    end
+
     it "should submit the request" do
       mock_request.should_receive(:submit)
       Imified.send_message('A Message', :to => 'someones userkey')

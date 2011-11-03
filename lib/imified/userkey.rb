@@ -1,6 +1,6 @@
 class Imified::Userkey
 
-  def self.extract(recipient)
+  def self.find(recipient)
     Imified.user_list ||= Imified.get_all_users
 
     if recipient.include?('@')
