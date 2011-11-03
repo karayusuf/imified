@@ -49,7 +49,7 @@ Setup IMified when your application initializes:
 == Usage
 
   # Send a message to a user or list of users.
-  Imified.send_message("Welcome to Imified", :to => 'userkey')
+  Imified.send_message("Welcome to Imified", :to => 'userkey or email address')
 
   # Fetch the user details for a specific user.
   Imified.get_user(userkey)
